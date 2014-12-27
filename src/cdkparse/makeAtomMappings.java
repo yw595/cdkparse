@@ -31,26 +31,6 @@ public class makeAtomMappings {
 	
 	public static void main(String[] args)
 	{
-		if(false)
-		{
-			System.out.println((char) 0);
-			System.out.println((char) 10);
-			System.out.println((char) 20);
-			System.out.println((char) 30);
-			System.out.println((char) 40);
-			System.out.println((char) 50);
-			System.out.println((char) 60);
-			System.out.println((char) 70);
-			System.out.println((char) 80);
-			System.out.println((char) 90);
-			System.out.println((char) 100);
-			System.out.println((char) 110);
-			System.out.println((char) 120);
-			System.out.println((char) 48);
-			System.out.println((char) 49);
-		}
-		else
-		{
 		try{
 			makeAtomLettersArray();
 			
@@ -63,9 +43,9 @@ public class makeAtomMappings {
 			Map<String, ArrayList<int[]>> metsToHomotopicSets = makeMetsToHomotopicSets();
 			
 			BufferedReader reader = new BufferedReader(new FileReader(
-			"C:\\Users\\Yiping Wang\\Documents\\Lab Work\\Locasale Lab\\database_CarbonFateMapsRxns.txt"));
+			"C:\\Users\\Yiping Wang\\Documents\\Lab Work\\MFA\\database_CarbonFateMapsRxns.txt"));
 			writer = new PrintWriter(new FileOutputStream(
-			"C:\\Users\\Yiping Wang\\Documents\\Lab Work\\Locasale Lab\\atomMappings3.csv"));
+			"C:\\Users\\Yiping Wang\\Documents\\Lab Work\\MFA\\atomMappings3.csv"));
 			
 			String readerLine = reader.readLine();
 			readerLine = reader.readLine();
@@ -89,17 +69,10 @@ public class makeAtomMappings {
 				allFateMappings.add(fateMappings);
 				ArrayList<String> reactants;
 				ArrayList<String> products;
-				if(KEGGID.equals("R00408"))
-				{
-					System.out.println(count);
-					System.out.println("HERE");
-				}
 				if(rxnsToMets.containsKey(KEGGID))
 				{
 					reactants = rxnsToMets.get(KEGGID).get(0);
 					products = rxnsToMets.get(KEGGID).get(1);
-					//if(KEGGID.equals("R00408"))
-						//System.out.println("HERE");
 				}
 				else
 				{
@@ -318,7 +291,6 @@ public class makeAtomMappings {
 			System.out.println("IOException on CLCA file");
 		}
 		}
-	}
 
 	public static ArrayList<Object> getMolecules(String readerLine, SmilesParser sp) throws InvalidSmilesException
 	{
